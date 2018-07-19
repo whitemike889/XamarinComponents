@@ -54,7 +54,11 @@ Running Cake to Build targets
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
+string ARTIFACT_VERSION="1.9.0";
 string AAR_URL="https://bintray.com/google/tensorflow/download_file?file_path=org%2Ftensorflow%2Ftensorflow-lite%2F1.9.0%2Ftensorflow-lite-1.9.0.aar";
+string ARTIFACT_FILE = $"./externals/android/tensorflow-lite-{ARTIFACT_VERSION}.aar";
+string NUGET_VERSION=$"{ARTIFACT_VERSION}-alpha01";
+
 
 BuildSpec buildSpec = new BuildSpec () 
 {
@@ -73,10 +77,6 @@ BuildSpec buildSpec = new BuildSpec ()
 				{ 
 					FromFile = "source/Xamarin.TensorFlow.Lite.Bindings.XamarinAndroid/bin/Release/Xamarin.TensorFlow.Lite.1.9.0-alpha01.nupkg" 
 				},
-				// new OutputFileCopy 
-				// { 
-				// 	FromFile = "./source/Xamarin.TensorFlow.Lite.Bindings.XamarinIOS/bin/Release/Xamarin.TensorFlow.Lite.dll" 
-				// },
 			}
 		}
 	},
@@ -88,27 +88,11 @@ BuildSpec buildSpec = new BuildSpec ()
 			SolutionPath = "./samples/Xamarin.TensorFlow.Lite.Samples.sln" 
 		},	
 	},
-
-	Components = new []
-	{
-		new Component 
-		{ 
-			ManifestDirectory = "./component" 
-		},
-	},
-
-	NuGets = new [] 
-	{
-		new NuGetInfo 
-		{ 
-			NuSpec = "./nuget/HolisticWare.Xamarin.TensorFlow.Lite.nuspec" 
-		},
-	},
 };
 
 Task ("externals")
 	.IsDependentOn ("externals-base")
-	// .WithCriteria (!FileExists ("./externals/Xamarin.TensorFlow.Lite.aar"))
+	.WithCriteria (!FileExists (ARTIFACT_FILE))
 	.Does 
 	(
 		() => 
@@ -117,10 +101,9 @@ Task ("externals")
 			EnsureDirectoryExists("./externals/android");
 			Information("    downloading ...");
 
-			string file = "./externals/android/tensorflow-lite-1.9.0.aar";
-			if ( ! string.IsNullOrEmpty(AAR_URL) && ! FileExists(file))
+			if ( ! string.IsNullOrEmpty(AAR_URL) && ! FileExists(ARTIFACT_FILE))
 			{
-				DownloadFile (AAR_URL, file);
+				DownloadFile (AAR_URL, ARTIFACT_FILE);
 			}
 		}
 	);
@@ -138,6 +121,28 @@ Task ("clean")
 			}
 		}
 	);
+
+Task("nuget")
+	.IsDependentOn("libs")
+	.Does
+	(
+		() =>
+		{
+			EnsureDirectoryExists("./output");
+
+			MSBuild
+			(
+				"./source/Xamarin.TensorFlow.Lite.Bindings.XamarinAndroid/Xamarin.TensorFlow.Lite.Bindings.XamarinAndroid.csproj", 
+				configuration => 
+					configuration
+						.SetConfiguration("Release")
+						.WithTarget("Pack")
+						.WithProperty("PackageVersion", NUGET_VERSION)
+						.WithProperty("PackageOutputPath", "../../output")
+			);
+
+		}
+);
 
 SetupXamarinBuildTasks (buildSpec, Tasks, Task);
 
