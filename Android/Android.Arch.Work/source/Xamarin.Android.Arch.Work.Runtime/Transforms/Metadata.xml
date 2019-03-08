@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <!--
+  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
+  
+  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
+  -->
+  
+    <attr
+        path="/api/package[@name='androidx.work.impl.constraints.trackers']/class[@name='ConstraintTracker']/method[@name='getInitialState' and count(parameter)=0]"
+        name="abstract"
+        >
+        false
+    </attr>
+        
+    <attr
+        path="/api/package[@name='androidx.work.impl.constraints.trackers']/class[@name='BatteryNotLowTracker']/method[@name='getInitialState' and count(parameter)=0]"
+        name="managedReturn"
+        >
+        Java.Lang.Object
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.work.impl.constraints.trackers']/class[@name='BatteryChargingTracker']/method[@name='getInitialState' and count(parameter)=0]"
+        name="managedReturn"
+        >
+        Java.Lang.Object
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.work.impl.constraints.trackers']/class[@name='NetworkStateTracker']/method[@name='getInitialState' and count(parameter)=0]"
+        name="managedReturn"
+        >
+        Java.Lang.Object
+    </attr>
+    <attr
+        path="/api/package[@name='androidx.work.impl.constraints.trackers']/class[@name='StorageNotLowTracker']/method[@name='getInitialState' and count(parameter)=0]"
+        name="managedReturn"
+        >
+        Java.Lang.Object
+    </attr>
+    
+</metadata>

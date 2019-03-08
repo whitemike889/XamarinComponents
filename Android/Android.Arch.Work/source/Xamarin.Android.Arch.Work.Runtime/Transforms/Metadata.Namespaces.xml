@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <!--
+  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
+  
+  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
+  -->
+    <attr 
+        path="/api/package[@name='androidx.work']" 
+        name="managedName"
+        >
+        Xamarin.AndroidX.Work
+    </attr>
+    <attr 
+        path="/api/package[@name='androidx.work.impl']" 
+        name="managedName"
+        >
+        Xamarin.AndroidX.Work.Impl
+    </attr>
+    <attr 
+        path="/api/package[@name='androidx.work.impl.background']" 
+        name="managedName"
+        >
+        Xamarin.AndroidX.Work.Impl.Background
+    </attr>
+    <attr 
+        path="/api/package[@name='androidx.work.impl.background.greedy']" 
+        name="managedName"
+        >
+        Xamarin.AndroidX.Work.Impl.Background.Greedy
+    </attr>
+    <attr 
+        path="/api/package[@name='androidx.work.impl.background.systemalarm']" 
+        name="managedName"
+        >
+        Xamarin.AndroidX.Work.Impl.Background.SystemAlarm
+    </attr>
+    <attr 
+        path="/api/package[@name='androidx.work.impl.background.systemjob']" 
+        name="managedName"
+        >
+        Xamarin.AndroidX.Work.Impl.Background.SystemJob
+    </attr>
+    <attr 
+        path="/api/package[@name='androidx.work.impl.constraints']" 
+        name="managedName"
+        >
+        Xamarin.AndroidX.Work.Impl.Constraints
+    </attr>
+    <attr 
+        path="/api/package[@name='androidx.work.impl.constraints.controllers']" 
+        name="managedName"
+        >
+        Xamarin.AndroidX.Work.Impl.Constraints.Controllers
+    </attr>
+    <attr 
+        path="/api/package[@name='androidx.work.impl.constraints.trackers']" 
+        name="managedName"
+        >
+        Xamarin.AndroidX.Work.Impl.Constraints.Trackers
+    </attr>
+    <attr 
+        path="/api/package[@name='androidx.work.impl.model']" 
+        name="managedName"
+        >
+        Xamarin.AndroidX.Work.Impl.Model
+    </attr>
+    <attr 
+        path="/api/package[@name='androidx.work.impl.utils']" 
+        name="managedName"
+        >
+        Xamarin.AndroidX.Work.Impl.Utils
+    </attr>
+    <attr 
+        path="/api/package[@name='androidx.work.impl.utils.futures']" 
+        name="managedName"
+        >
+        Xamarin.AndroidX.Work.Impl.Utils.Futures
+    </attr>
+    <attr 
+        path="/api/package[@name='androidx.work.impl.utils.taskexecutor']" 
+        name="managedName"
+        >
+        Xamarin.AndroidX.Work.Impl.Utils.TaskExecutor
+    </attr>
+    <attr 
+        path="/api/package[@name='androidx.work.impl.workers']" 
+        name="managedName"
+        >
+        Xamarin.AndroidX.Work.Impl.Workers
+    </attr>
+    
+</metadata>
