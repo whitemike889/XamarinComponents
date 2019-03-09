@@ -66,8 +66,8 @@
     <TransformFile Include="Transforms\Metadata.Namespaces.xml" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="..\..\externals\work-firebase.aar">
-      <Link>Jars\work-firebase.aar</Link>
+    <LibraryProjectZip Include="..\..\externals\work-firebase-1.0.0-alpha11.aar">
+      <Link>Jars\work-firebase-1.0.0-alpha11.aar</Link>
     </LibraryProjectZip>
   </ItemGroup>
   <ItemGroup>

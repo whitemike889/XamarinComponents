@@ -55,8 +55,8 @@
     <TransformFile Include="Transforms\Metadata.Namespaces.xml" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="..\..\externals\work-rxjava2.aar">
-      <Link>Jars\work-rxjava2.aar</Link>
+    <LibraryProjectZip Include="..\..\externals\work-rxjava2-1.0.0.aar">
+      <Link>Jars\work-rxjava2-1.0.0.aar</Link>
     </LibraryProjectZip>
   </ItemGroup>
   <ItemGroup>

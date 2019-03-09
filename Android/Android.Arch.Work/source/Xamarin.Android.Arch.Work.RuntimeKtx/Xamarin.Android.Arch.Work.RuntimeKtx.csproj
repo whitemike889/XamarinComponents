@@ -55,8 +55,8 @@
     <TransformFile Include="Transforms\Metadata.Namespaces.xml" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="..\..\externals\work-runtime-ktx.aar">
-      <Link>Jars\work-runtime-ktx.aar</Link>
+    <LibraryProjectZip Include="..\..\externals\work-runtime-ktx-1.0.0.aar">
+      <Link>Jars\work-runtime-ktx-1.0.0.aar</Link>
     </LibraryProjectZip>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
